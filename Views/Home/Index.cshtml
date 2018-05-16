@@ -1,0 +1,122 @@
+﻿@using Wedding.Models;
+@using Wedding.Util;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adam and Steve 2018</title>
+        <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+        <link href="@(Constants.URL_PATH_PREFIX + "/favicon.png")" rel="icon" type="image/png">
+        <script src="@(Constants.URL_PATH_PREFIX + "/Index.js")"></script>
+    </head>
+    <body>
+        <div class="centre-column">
+            <h1>Adam &amp; Steve</h1>
+            <h3>Sunday, 21 January 2018</h3>
+            <img src="@(Constants.URL_PATH_PREFIX + "/Novotel.png")">
+            <p class="img-caption"><a target="_blank" href="http://www.novotelbarossa.com/">Novotel Barossa Valley Resort</a>, 42 Pioneer Avenue, Rowland Flat SA 5352</p>
+
+            <div class="section-container">
+                <div class="section unboxed foreground" id="spinner-section">
+                    <img src="@(Constants.URL_PATH_PREFIX + "/spinner.gif")" class="spinner">
+                </div>
+
+                <div class="section" id="auth-section">
+                    <form>
+                        <h4>Please fill out the following to continue:</h4>
+                        <div class="input-row">
+                            <label for="input-name">First and last name</label>
+                            <input type="text" id="input-name">
+                        </div>
+                        <div class="input-row">
+                            <label for="input-code">Your invitation code</label>
+                            <input type="text" id="input-code">
+                        </div>
+                        <div class="button-row">
+                            <button type="submit" id="submit-auth">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="section" id="survey-section">
+                    <form>
+                        <div class="input-row">
+                            <label for="input-pax">Adults attending</label>
+                            <select id="input-pax">
+                                <option value="0">0 - unable to attend</option>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <p class="for-attendees"><span class="singular">I</span><span class="plural">We</span> intend to drive <strong>from Adelaide</strong> to the Barossa Valley</p>
+                        <div class="input-row for-attendees">
+                            <label>Driving</label>
+                            <input type="radio" name="input-driving" id="input-driving-yes" value="true"><label class="radio-label" for="input-driving-yes">Yes</label>
+                            <input class="need-left-margin" type="radio" name="input-driving" id="input-driving-no" value="false"><label class="radio-label" for="input-driving-no">No</label>
+                        </div>
+                        <p class="for-attendees for-non-drivers"><span class="singular">I am</span><span class="plural">We are</span> interested in sharing a private bus from Adelaide on the morning of 20 January, and/or back to Adelaide on the morning of 22 January</p>
+                        <div class="input-row for-attendees for-non-drivers">
+                            <label for="input-busfrom">From Adelaide</label>
+                            <input type="checkbox" id="input-busfrom">
+                        </div>
+                        <div class="input-row for-attendees for-non-drivers">
+                            <label for="input-busto">To Adelaide</label>
+                            <input type="checkbox" id="input-busto">
+                        </div>
+                        <p class="for-attendees for-drivers"><span class="singular">I</span><span class="plural">We</span> can offer place(s) in <span class="singular">my</span><span class="plural">our</span> car to other guest(s) as indicated on the following days</p>
+                        @foreach (TravelDay day in TravelDay.Days) {
+                            <div class="input-row for-attendees for-drivers">
+                                <label for="@("input-offer" + day.DayOfMonth)">@day.Prettify()</label>
+                                <select id="@("input-offer" + day.DayOfMonth)" class="input-offerx" data-x="@day.DayOfMonth">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        }
+                        <p class="for-attendees for-non-drivers"><span class="singular">I</span><span class="plural">We</span> would like to accept place(s) in another guest's car (if available) as indicated</p>
+                        <div class="input-row for-attendees for-non-drivers">
+                            <label for="input-moochfrom">From Adelaide</label>
+                            <select id="input-moochfrom">
+                                <option value="0" selected>[Not required]</option>
+                                @foreach (TravelDay day in TravelDay.Days) {
+                                    <option value="@day.DayOfMonth">@day.Prettify()</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="input-row for-attendees for-non-drivers">
+                            <label for="input-moochto">To Adelaide</label>
+                            <select id="input-moochto">
+                                <option value="0" selected>[Not required]</option>
+                                @foreach (TravelDay day in TravelDay.Days) {
+                                    <option value="@day.DayOfMonth">@day.Prettify()</option>
+                                }
+                            </select>
+                        </div>
+                        <p class="for-attendees"><span class="singular">I am</span><span class="plural">We are</span> interested in joining a wine-tasting tour on Sunday, 21 January for around $125<span class="plural"> per person</span> including lunch</p>
+                        <div class="input-row for-attendees">
+                            <label for="input-wine">Wine tour</label>
+                            <input type="checkbox" id="input-wine">
+                        </div>
+                        <div class="input-row for-attendees">
+                            <label for="input-dietary">Dietary (opt.)</label>
+                            <input id="input-dietary" type="text">
+                        </div>
+                        <div class="input-row">
+                            <label for="input-comments">Comments (opt.)</label>
+                            <textarea id="input-comments" rows="8"></textarea>
+                        </div>
+                        <div class="button-row">
+                            <button type="submit" id="submit-survey">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="section" id="message-section">
+                    <span id="message-pre-link"></span><a href="#" id="message-link"></a><span id="message-post-link"></span>
+                </div>
+            </div>
+        </div>
+        <input id="hidden-url-prefix" type="hidden" value="@Constants.URL_PATH_PREFIX">
+    </body>
+</html>

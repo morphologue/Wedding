@@ -1,0 +1,149 @@
+* {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+h1, h3, h4 {
+    font-weight: normal;
+}
+
+h1 {
+    margin-top: 30px;
+    margin-bottom: 0;    
+    font-family: Parisienne, "Comic Sans MS", cursive, sans-serif;
+    font-size: 80px;
+    color: #b98a46;
+}
+
+h3, h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.img-caption {
+    margin: 1em auto;
+}
+
+.centre-column > p a {
+    text-decoration: none;
+}
+
+a:visited, a {
+    color: #4848ac;
+}
+
+.centre-column {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.centre-column > img {
+    display: block;
+    width: 100%;
+}
+
+.section-container {
+    margin: 40px 0 50px;
+}
+
+.section {
+    text-align: left;
+}
+
+.section:not(.foreground) {
+    display: none;
+}
+
+.section.foreground {
+    display: inline-block;
+}
+
+.section:not(.unboxed), .input-row input, .input-row select, .input-row textarea {
+    border: 1px solid #b98a46;
+}
+
+.section:not(.unboxed) {
+       padding: 25px;
+}
+
+img.spinner {
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+}
+
+form p {
+    font-style: italic;
+}
+
+.input-row {
+    display: flex;
+    align-items: baseline;
+}
+
+.input-row:not(:first-child) {
+    margin-top: 10px;
+}
+
+.input-row input, .input-row select, .input-row textarea, .button-row button {
+    outline: none;
+}
+
+.input-row label:not(.radio-label) {
+    width: 180px;
+}
+
+.input-row label:not(.radio-label)::after, form p::after {
+    content: ': ';
+}
+
+.input-row input[type="radio"].need-left-margin {
+    margin-left: 20px;
+}
+
+.input-row input[type="text"], .input-row textarea {
+    flex-grow: 1;
+    border-radius: 5px;
+}
+
+.input-row input[type="text"] {
+    height: 30px;
+}
+
+.input-row input:focus, .input-row textarea:focus {
+    border-width: 2px;
+}
+
+.input-row textarea {
+    resize: none;
+}
+
+.button-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button-row button {
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #b98a46;
+    border: none;
+    color: white;
+}
+
+.button-row button:focus {
+    opacity: 0.5;
+}

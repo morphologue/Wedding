@@ -1,0 +1,7 @@
+/bin
+/obj
+/pub
+/.vscode
+/node_modules
+/wwwroot/*.js
+/wwwroot/*.js.map
