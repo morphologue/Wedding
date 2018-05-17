@@ -47,7 +47,7 @@ namespace Wedding
                 }
             }
 
-            app.UseStaticFiles(Constants.URL_PATH_PREFIX);
+            app.UseStaticFiles(Constants.URL_PATH_PREFIX_FOR_ASSETS);
 
             app.UseMvc(routes => routes.MapRoute("default", Constants.URL_PATH_PREFIX.Substring(1) + "/{action=Index}/{controller=Home}"));
         }

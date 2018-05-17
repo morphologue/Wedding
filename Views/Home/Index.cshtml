@@ -5,19 +5,19 @@
     <head>
         <title>Adam and Steve 2018</title>
         <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
-        <link href="@(Constants.URL_PATH_PREFIX + "/favicon.png")" rel="icon" type="image/png">
-        <script src="@(Constants.URL_PATH_PREFIX + "/Index.js")"></script>
+        <link href="@Html.Asset("favicon.png")" rel="icon" type="image/png">
+        <script src="@Html.Asset("Index.js")"></script>
     </head>
     <body>
         <div class="centre-column">
             <h1>Adam &amp; Steve</h1>
             <h3>Sunday, 21 January 2018</h3>
-            <img src="@(Constants.URL_PATH_PREFIX + "/Novotel.png")">
+            <img src="@Html.Asset("Novotel.png")">
             <p class="img-caption"><a target="_blank" href="http://www.novotelbarossa.com/">Novotel Barossa Valley Resort</a>, 42 Pioneer Avenue, Rowland Flat SA 5352</p>
 
             <div class="section-container">
                 <div class="section unboxed foreground" id="spinner-section">
-                    <img src="@(Constants.URL_PATH_PREFIX + "/spinner.gif")" class="spinner">
+                    <img src="@Html.Asset("spinner.gif")" class="spinner">
                 </div>
 
                 <div class="section" id="auth-section">

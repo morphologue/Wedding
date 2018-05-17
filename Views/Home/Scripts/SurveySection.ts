@@ -65,7 +65,7 @@ export class SurveySection extends FlowSection
                         postLink: ' it if you need to.'
                     }
                 }),
-                error: (xhr, msg) => handleAjaxError(xhr, msg, { rsvp }, resolve, false)
+                error: (xhr, err1, err2) => handleAjaxError(xhr, err2 || err1, { rsvp }, resolve, false)
             });
         })
     }

@@ -1,7 +1,11 @@
-* {
+*, input, label, textarea, select {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
     box-sizing: border-box;
+}
+
+body {
+    text-size-adjust: none;
 }
 
 h1, h3, h4 {
@@ -73,7 +77,7 @@ a:visited, a {
 }
 
 .section:not(.unboxed) {
-       padding: 25px;
+    padding: 25px;
 }
 
 img.spinner {

@@ -24,7 +24,7 @@ export function handleAjaxError(xhr: JQueryXHR, msg: string, input: FlowData, re
                 : {
                     preLink: 'Your session has expired. Please ',
                     link: 'log in',
-                    postLink: ' again.'
+                    postLink: ' again. Any changes you have made will be preserved.'
                 }
         });
     else

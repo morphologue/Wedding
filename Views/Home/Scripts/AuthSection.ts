@@ -41,7 +41,7 @@ export class AuthSection extends FlowSection
                     contentType: 'application/json; charset=UTF-8',
                     data: JSON.stringify({ authToken: input.rsvp.authToken }),
                     success: (response: Rsvp) => resolve({ rsvp: response }),
-                    error: (xhr, msg) => handleAjaxError(xhr, msg, input, resolve, false)
+                    error: (xhr, err1, err2) => handleAjaxError(xhr, err2 || err1, input, resolve, false)
                 });
                 return;
             }
@@ -75,7 +75,7 @@ export class AuthSection extends FlowSection
                             }
                         });
                     },
-                    error: (xhr, msg) => handleAjaxError(xhr, msg, input, resolve, true)
+                    error: (xhr, err1, err2) => handleAjaxError(xhr, err2 || err1, input, resolve, true)
                 });
             };
         });

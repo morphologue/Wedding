@@ -32,6 +32,7 @@ namespace Wedding.Util
         {
             // Identify the latest response for the invitation code (or null if there is none).
             Response latest = await ef.Responses
+                .Include(r => r.ResponseOffers)
                 .Where(r => r.Invitee.Code == guest.Code)
                 .OrderByDescending(r => r.ResponseId)
                 .FirstOrDefaultAsync();
