@@ -49,6 +49,8 @@ namespace Wedding.Models
 
         public string Comments { get; set; }
 
+        public DateTime Created { get; set; } = DateTime.UtcNow;
+
         public Invitee Invitee { get; set; }
 
         public ICollection<ResponseOffer> ResponseOffers { get; set; } = new HashSet<ResponseOffer>();

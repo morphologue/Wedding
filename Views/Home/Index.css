@@ -63,6 +63,7 @@ a:visited, a {
 
 .section {
     text-align: left;
+    max-width: 100%;
 }
 
 .section:not(.foreground) {
@@ -109,23 +110,12 @@ form p {
 
 .input-row input, .input-row select, .input-row textarea, .button-row button {
     outline: none;
+    min-width: 0;
 }
 
 .input-row label:not(.radio-label) {
     width: 180px;
-}
-
-/* But (in relation to the above style) prevent .input-rows overflowing the .section horizontally
-   on iPhone. */
-@media only screen and (max-width: 500px) {
-    .input-row label:not(.radio-label) {
-        width: 90px;
-        margin-right: 20px;
-    }
-
-    .input-row input, .input-row select, .input-row textarea {
-        max-width: 140px;
-    }
+    flex-shrink: 0;
 }
 
 .input-row label:not(.radio-label)::after, form p::after {
@@ -171,4 +161,16 @@ form p {
 
 .button-row button:focus {
     opacity: 0.5;
+}
+
+/* Mobiles in portrait get squished labels. */
+@media only screen and (max-width: 500px) {
+    .input-row label:not(.radio-label) {
+        width: 90px;
+        margin-right: 20px;
+    }
+
+    .input-row:not(.multiline) {
+        align-items: flex-start;
+    }
 }

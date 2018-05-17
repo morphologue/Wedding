@@ -11,9 +11,10 @@ using Wedding.Models;
 namespace Wedding.Models.Migrations
 {
     [DbContext(typeof(Ef))]
-    partial class EfModelSnapshot : ModelSnapshot
+    [Migration("20180517232103_ResponseCreated")]
+    partial class ResponseCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

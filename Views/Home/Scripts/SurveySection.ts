@@ -51,6 +51,9 @@ export class SurveySection extends FlowSection
                 survey: this._objectify()
             };
 
+            const attendee_info = !rsvp.survey || !rsvp.survey.adults ? ''
+                : ' Extra information for attendees goes here.';
+
             spinner();
             $.ajax({
                 url: makeServerUrl('Rsvp'),
@@ -62,7 +65,7 @@ export class SurveySection extends FlowSection
                     message: {
                         preLink: 'Thank you. Your response has been recorded, but you can still ',
                         link: 'edit',
-                        postLink: ' it if you need to.'
+                        postLink: ' it if you need to.' + attendee_info
                     }
                 }),
                 error: (xhr, err1, err2) => handleAjaxError(xhr, err2 || err1, { rsvp }, resolve, false)
