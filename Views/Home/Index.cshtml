@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Adam and Steve 2018</title>
         <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
         <link href="@Html.Asset("favicon.png")" rel="icon" type="image/png">
@@ -25,11 +26,11 @@
                         <h4>Please fill out the following to continue:</h4>
                         <div class="input-row">
                             <label for="input-name">First and last name</label>
-                            <input type="text" id="input-name">
+                            <input type="text" size="1" id="input-name">
                         </div>
                         <div class="input-row">
                             <label for="input-code">Your invitation code</label>
-                            <input type="text" id="input-code">
+                            <input type="text" size="1" id="input-code">
                         </div>
                         <div class="button-row">
                             <button type="submit" id="submit-auth">Continue</button>
@@ -100,9 +101,9 @@
                         </div>
                         <div class="input-row for-attendees">
                             <label for="input-dietary">Dietary (opt.)</label>
-                            <input id="input-dietary" type="text">
+                            <input id="input-dietary" type="text" size="1">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row multiline">
                             <label for="input-comments">Comments (opt.)</label>
                             <textarea id="input-comments" rows="8"></textarea>
                         </div>

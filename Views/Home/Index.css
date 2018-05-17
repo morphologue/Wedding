@@ -1,9 +1,10 @@
-*, input, label, textarea, select {
+* {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
     box-sizing: border-box;
 }
 
+/* Prevent paragraphs being bigger than labels on iPhone. */
 body {
     text-size-adjust: none;
 }
@@ -92,7 +93,14 @@ form p {
 
 .input-row {
     display: flex;
+}
+
+.input-row:not(.multiline) {
     align-items: baseline;
+}
+
+.input-row.multiline {
+    align-items: flex-start;
 }
 
 .input-row:not(:first-child) {
@@ -105,6 +113,19 @@ form p {
 
 .input-row label:not(.radio-label) {
     width: 180px;
+}
+
+/* But (in relation to the above style) prevent .input-rows overflowing the .section horizontally
+   on iPhone. */
+@media only screen and (max-width: 500px) {
+    .input-row label:not(.radio-label) {
+        width: 90px;
+        margin-right: 20px;
+    }
+
+    .input-row input, .input-row select, .input-row textarea {
+        max-width: 140px;
+    }
 }
 
 .input-row label:not(.radio-label)::after, form p::after {
